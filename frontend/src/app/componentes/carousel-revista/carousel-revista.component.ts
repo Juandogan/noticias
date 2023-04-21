@@ -49,23 +49,27 @@ export class CarouselRevistaComponent implements OnInit, AfterViewInit  {
           prevEl: '.swiper-button-prev'
         },
         loop: true
+        
 
       };
 
 
 
       ngAfterViewInit() {
-       
+        if (isPlatformBrowser(this._platformId)) {
+          this.swipperisActive = true;
+         }
+    
 
 
       }
 
   ngOnInit(): void {
+  
+
     if (isPlatformBrowser(this._platformId)) {
       this.swipperisActive = true;
      }
-
-
 
 
 

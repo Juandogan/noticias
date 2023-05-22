@@ -1,13 +1,18 @@
+<div class="edicionesAnteriores">
+  <h1 style="padding-bottom: 10px; padding-top: 10px;">Ediciones Anteriores</h1>
+
+</div>
 <swiper *ngIf="swipperisActive" [initialize]="swipperisActive" [config]="config" class="principal">
+
   <div>
 
     <div style="margin-top: 14px;">
-      <h1>Números Anteriores</h1>
+
     </div>
 
   </div>
   <div class="swiper-wrapper">
-    <div *ngFor="let image of slideData" class="swiper-slide" style="padding: 10px!important; border-radius: 10px;">
+    <div *ngFor="let image of slideData" class="swiper-slide" style="padding: 1px!important; border-radius: 10px;">
       <a href={{image.subtitulo}} target="_blank">
         <p>{{image.titulo}}</p>
 
@@ -22,5 +27,5 @@
   </div>
   <div class="swiper-button-prev" style="margin-left: 20px;">
   </div>
-  <br>
+  
 </swiper>

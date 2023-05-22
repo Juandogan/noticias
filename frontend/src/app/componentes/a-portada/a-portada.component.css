@@ -9,7 +9,7 @@
  
   /* font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
   font-weight: 800;
-  line-height: 40px;
+  line-height: 33px;
   min-height: 100% ;
  }
 
@@ -91,6 +91,11 @@
   left:3%; 
   }
 
+  .subtitulo{
+    padding-left: 20px; color:gainsboro; padding-right: 20px;
+    font-size: 18px;
+  }
+
   .fade-in-image {
       animation: fadeIn 2s;
       -webkit-animation: fadeIn 2s;
@@ -127,8 +132,8 @@
   /* Recuadro negro de la portada */
   .cuadroTitulo{
       position:absolute;
-      min-height: 167px;
-      top: 384px;
+      min-height: 187px;
+      top: 364px;
 
       left:10px;
       right:20px;
@@ -142,16 +147,14 @@
 
 @media (max-width:1000px){
   .quitar1300{display: none;}
-  .cuadroTitulo{
-    top: 383px;   
+  
  
     
-}
 }
 
 @media (max-width:990px){
   .div-img-publi{display:none}
-
+  
 
                   
   }
@@ -167,8 +170,19 @@
     .marco{margin-left:-22px}
     .logo{width: 160px; margin-top:20px;
     margin-left:-5x;
+    
+    }
+    .titular{
+ 
+      margin-left:20px!important;
     }
 
+    .categoria{
+ 
+      margin-left:20px!important;
+    }
+    .subtitulo{display:none}
+    .cuadroTitulo{ top: 247px!important;} 
     @media (max-width:576px){
       .quitarPubli{
         display:none
@@ -180,7 +194,7 @@
     .cuadroTitulo{
       position:absolute;
       min-height: 123px;
-      top:248px;
+      top:247px;
 
       left:0px;
       right:0px;

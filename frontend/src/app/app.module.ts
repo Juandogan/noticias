@@ -19,7 +19,10 @@ import { FooterComponent } from './componentes/footer/footer.component';
 import { Publicidadx3Component } from './componentes/publicidadx3/publicidadx3.component';
 import { BIndiceComponent } from './componentes/b-indice/b-indice.component';
 import { PublicidadHorizontalComponent } from './componentes/publicidad-horizontal/publicidad-horizontal.component';
-
+import { SanetizerPipe } from './pipes/sanetizer.pipe';  
+import { ComentariosComponent } from './componentes/comentarios/comentarios.component';
+import { FormsModule } from '@angular/forms';
+import { LateralIntercaladoComponent } from '../app/componentes/lateral-intercalado/lateral-intercalado.component'
 
 
 @NgModule({
@@ -36,7 +39,10 @@ import { PublicidadHorizontalComponent } from './componentes/publicidad-horizont
     FooterComponent,
     Publicidadx3Component,
     BIndiceComponent,
-    PublicidadHorizontalComponent
+    PublicidadHorizontalComponent,
+    SanetizerPipe,
+    ComentariosComponent,
+    LateralIntercaladoComponent
     
     
 
@@ -45,7 +51,8 @@ import { PublicidadHorizontalComponent } from './componentes/publicidad-horizont
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     NgxUsefulSwiperModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

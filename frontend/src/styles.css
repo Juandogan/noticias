@@ -1,15 +1,30 @@
 
 
+@font-face {
+  font-family: lato;
+  src: url(../../frontend/src/assets/fonts/Nunito-SemiBold.ttf) format("opentype");
+}
 
-html, body { margin:0px; padding:0px}
+h4 .fuenteBarra{ font-family: 'lato', 'arial', sans-serif!important; font-weight: bold;}
+
+
+html, body { margin:0px; padding:0px;
+
+ 
+
+
+}
 body{
   zoom:0.9;
   background-color: rgb(197, 197, 197);;
 margin-left: 13%;
 margin-right: 13%;
 
-
 }
+
+html{   overflow: -moz-scrollbars-vertical; 
+  overflow-y: scroll;}
+
 
 
 

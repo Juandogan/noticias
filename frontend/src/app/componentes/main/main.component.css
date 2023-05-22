@@ -8,19 +8,32 @@
   
   .indice{
     margin-left:30px;
-    margin-top:-10px;
+    margin-top:15px;
+    font-size: 27px;
+    font-family: Oswald, sans-serif!important;   
     margin-bottom: 20px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 25px;
-    font-weight: 700;
-    letter-spacing: -1px;
+       
+  
+    letter-spacing: 2px;
     color: white;
-    text-shadow: 2px 2px 8px black;}
+    }
+    .popup{display: none;}
+    .sacar{display:none!important}   
   
   .portadaAcomoda{padding:10px; padding-left:0px; padding-right: 0px;}
+
+  @media (max-width:766px){
+    .fondoEditorial{
+      height: auto;}
+    
+    .imgSobrante{ padding:20px; padding-left: 30px; padding-right: 30px; padding-right: 10px; }
+    .imgAparece{display:block; padding: 30px; margin-top:-10px; padding-left: 13px; padding-right: 10px; }
+
+
+   }
   
     .fondoEditorial {background-color: #3E2800;
-  
+      height: auto;
    margin-left: 20px;
    margin-right: 20px}
    .editorialParrafo{
@@ -100,16 +113,13 @@
   @media (max-width: 600px)
   {
   .quitar600{display:none}
+  .popup{display:block; margin-bottom: 10px; width: 100%;}
+  .div-principal{
+    border-left:  0px solid rgb(43, 43, 43);
+    border-right: 0px solid rgb(44, 44, 44);}
   
   
-  
-  
-  .indice{
-  margin-left:10px;
-  margin-top:15px;
-  font-size: 20px
-  ;}
-  
+
   
   
   .editorialParrafo{

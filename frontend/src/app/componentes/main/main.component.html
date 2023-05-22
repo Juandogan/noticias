@@ -1,109 +1,81 @@
+<div  >
+  <div *ngIf="loader" class="text-center div-principal" style="height: 120vh; background-color: orange;">
+    
+  <div  class="spinner-border text-dark" role="status" style="margin-top: 30vh;">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+  <div *ngIf="!loader" class="div-principal">
 
-<div>
-    <div
-      *ngIf="!loader"
-      class="div-principal">
-      <div class="quitar600" style="margin-right: 25px; text-align: right; color:white; margin-top: -7px;">
-        <h6 style="font-size: 15px; font-weight: 800; padding-top: 10px">
-          NRO.
-          <span>22</span>
-          <span style="margin-left: 2px">|</span>
-          <span style="margin-left: 5px; text-transform: uppercase"
-            >MES: marzo</span
-          >
-          <span style="margin-left: 2px">|</span>
-          <span style="margin-left: 2px">AÑO: 2222</span>
-        </h6>
-      </div>
-  
-      <div class="portadaAcomoda">
-        <app-a-portada></app-a-portada>
-          
-        <app-publicidadx3></app-publicidadx3>
-     
-      </div>
-      <div>
-        <h4 class="indice" style="text-transform: uppercase">ÍNDICE - MARZOZ</h4>
-        <!-- <app-indice  [data]="articulos[0]"></app-indice> -->
-      </div>
-      <!-- <app-b-indice></app-b-indice> -->
-      <app-publicidad-horizontal></app-publicidad-horizontal>
-      <div style="background-color: rgb(59, 52, 0, 1)">
-        <!-- <a href="{{this.anuncios[0].link7}}" target="_blank"> -->
-        <!-- <img (click)="sumarContadorAunciante(7)" src={{this.anuncios[0]?.img7}}  width="100%" alt="" class="borde" > -->
-  
-        <!-- </a> -->
-      </div>
-  
-      <!-- EDITORIAL COMIEZA AQUI -->
-  
-      <div style="color: white; background-color: orange; margin-top: 10px">
-        <h1
-          class="indice subefuente fuenteTest"
-          style="margin-top: 20px; text-transform: uppercase"
-        >
-          EDITORIAL - NRO 33
-        </h1>
-        <div
-          class="fondoEditorial"
-          style="
+    <div *ngIf="this.articulos" class="quitar600" style="margin-right: 25px; text-align: right; color:white; ">
+      <h6 style="font-size: 15px; font-weight: 800; padding-top: 10px">
+        NRO. 
+        <span>{{this.articulos[0]?.numero}}</span>
+        <span style="margin-left: 2px">|</span>
+        <span style="margin-left: 5px; text-transform: uppercase">MES: {{this.articulos[0]?.mes}}</span>
+        <span style="margin-left: 2px">|</span>
+        <span style="margin-left: 2px">AÑO: {{this.articulos[0]?.anio}}</span>
+      </h6>
+    </div>
+
+    <div class="portadaAcomoda" *ngIf="this.articulos">
+      <div  *ngIf="this.publi[0].img7" [ngClass]="{'sacar':estadoBtn}" class="popup">
+      <img  [@slideDown] src="{{this.publi[0].img7}}" alt="" style=" width: 100%;    margin-bottom: 20px;
+      padding-right: 20px;
+      margin-top: 20px;
+      width: 100%;
+  ">
+  <button  (click)="cerrar()" class="btn btn-dark" style="    position: absolute;
+  top: 45px;
+  right: 9px;
+  border-radius: 111px;">X</button>
+    </div>
+      <app-a-portada [publi]="this.publi" [data]="this.articulos[0]"></app-a-portada>
+
+      <app-publicidadx3 [publi]="this.publi" class="quitar600" *ngIf="this.publi" ></app-publicidadx3>
+
+    </div>
+    <div>
+      <h4  *ngIf="this.articulos" class="indice quitar600" style="text-transform: uppercase; margin-top: 10px;">INDICE - {{this.articulos[0].mes}} <span>NRO. {{this.articulos[0].numero}}</span> - AÑO  {{this.articulos[0].anio}} </h4>
+      <app-b-indice  [data]="this.articulos[0]"></app-b-indice> 
+    </div>
+    <!-- <app-b-indice></app-b-indice> -->
+    <app-publicidad-horizontal *ngIf="this.publi" [publi]="this.publi"></app-publicidad-horizontal>
+    <div style="background-color: rgb(59, 52, 0, 1)">
+      <!-- <a href="{{this.anuncios[0].link7}}" target="_blank"> -->
+      <!-- <img (click)="sumarContadorAunciante(7)" src={{this.anuncios[0]?.img7}}  width="100%" alt="" class="borde" > -->
+
+      <!-- </a> -->
+    </div>
+
+    <!-- EDITORIAL COMIEZA AQUI -->
+
+    <div style="color: white; background-color: orange; margin-top: 10px; " >
+      <h1 class="indice subefuente fuenteTest" style="margin-top: 20px; text-transform: uppercase">
+ 
+      </h1>
+      <div *ngIf="this.articulos" class="fondoEditorial" style="
             background-image: url('../../../assets/1.png');
-            background-size: cover;
-          "
-        >
-          <div>
-        <p class="editorialParrafo" style="margin-top: 10px;">VENI Y SUMATE A LA RED CULTURAL DEL CCAM                    
+            background-size: cover; padding-right: 20px; padding-left: 20px;">
 
-          Los invitamos al desafío de poner en valor la cultura de montaña, contactate y sumate a la aventura!!                         
-          Si queres formarte como montañista, incorporarte a la Escuela de Entrenamientos de Montaña.                
-          
-          Comité de Redacción: Alex G. Martin, Presidente del CCAM Dirección: Cristina Barraza Equipo editorial: A. Natalia Fernández Juárez, Norma García, Claudia Iturralde, Marcelo Lisnovsky, Jorge Morena, German Moisés, Raúl Torres, Carlos Montero</p>
-            <!-- <img class="responsi2" src="../../../assets/LogoCCAM_Entero.png" width="100px" alt="" style="margin-top: 10px;"> -->
-            <!-- <p class="editorialParrafo"
-       [innerHTML]=saltos2(this.articulos[0]) >  -->
-            <!-- </p> -->
-            <!-- <p class="editorialParrafo" style="padding-bottom: 15px;"  [innerHTML]="this.articulos[0].editorial" > -->
-  
-            <br />
-            <br />
-  
-            <br /><br />
-          </div>
+        <div>
+          <br>
+          <p class="editorialParrafo" [innerHTML]=this.articulos[0]?.editorial>
+          </p>
+             <br />
         </div>
-        <!-- <div class="poner600">
+      </div>
+      <!-- <div class="poner600">
     <img src="../../../assets/image 12.png" width="100%" height="200px" alt="" style="margin-top: 0px;">
     </div> -->
+
   
-        <div class="row quitar600" style="margin-top: 30px; padding-right: 35px">
-          <div class="col-4 xl-12">
-            <div>
-              <!-- <a href="{{this.anuncios[0].link8}}" target="_blank"> -->
-              <!-- <img (click)="sumarContadorAunciante(8)" src={{this.anuncios[0].img8}}  width="100%" height="500px" alt="" style="padding-left:20px"></a> -->
-            </div>
-          </div>
-  
-          <div class="col-4">
-            <div>
-              <!-- <a href="{{this.anuncios[0].link9}}" target="_blank"> -->
-              <!-- <img (click)="sumarContadorAunciante(9)"src={{this.anuncios[0].img9}}  width="100%" height="500px" alt=""></a> -->
-            </div>
-          </div>
-  
-          <div class="col-4" style="padding-right: 0px">
-            <div>
-              <!-- <a href="{{this.anuncios[0].link10}}" target="_blank">
-         <img (click)="sumarContadorAunciante(10)" src="{{this.anuncios[0].img10}} " width="100%" height="500px"  alt=""></a> -->
-            </div>
-          </div>
-  
-          <app-carousel-revista></app-carousel-revista>
-          
-        </div>
-        <br />
-     
-      </div>
-      <app-footer></app-footer>
+      <br />
+      <app-publicidad-horizontal class="quitar600" *ngIf="this.publi" [publi]="this.publi"></app-publicidad-horizontal>
+      <br class="quitar600">
+      <app-carousel-revista></app-carousel-revista>
     </div>
-    
+    <app-footer></app-footer>
   </div>
-  
+
+</div>

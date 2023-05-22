@@ -11,8 +11,12 @@ import { Location } from '@angular/common';
 })
 export class CrudService {
   
-  readonly URL_API  = "http://168.197.50.191/articulos";
-  readonly URL_API2  = "http://168.197.50.191/adm";
+  readonly URL_API  = "http://191.101.18.184:3000/revista";
+  readonly URL_API2  = "http://191.101.18.184:3000/ccam";
+  readonly URL_API3  = "http://191.101.18.184:3000/anunciante";
+  readonly URL_API4  = "http://191.101.18.184:3000/categorias";
+
+
   cambioPantalla = true;
    Articulos:Articulos[]=[];
    unArticulo:Articulos
@@ -31,6 +35,13 @@ export class CrudService {
 
 
   //CRUD  
+
+
+  getCategorias(_id:any){
+    return this.http.get(this.URL_API4 + `/${_id}`);
+  };
+
+
    uploadFile(formData:any){
   console.log('Bandera por aca pasa NM', formData)
   
@@ -46,15 +57,27 @@ export class CrudService {
   };
 
   
+  getAnuncios() {
+    // var precio:number = Number(this.pedido.precio)    no se pa que funciona
+    return this.http.get(this.URL_API3);
+
+  };
+  modificarAnuncios(x:any) {
+    // var precio:number = Number(this.pedido.precio)    no se pa que funciona
+    return this.http.put(this.URL_API3 + `/${x._id}` , x);
+
+  };
+  
 
   getArticulos2() {
     // var precio:number = Number(this.pedido.precio)    no se pa que funciona
-    return this.http.get(this.URL_API2);
+    return this.http.get(this.URL_API);
 
   };
 
    getOneArticulo(_id:any){
-    return this.http.get(this.URL_API + `/${_id}`);
+
+    return this.http.get(this.URL_API2 + `/${_id}`);
   };
 
   addArticulo(articulo:Articulos) {
@@ -69,6 +92,13 @@ export class CrudService {
     return this.http.put(this.URL_API + `/${articulo._id}` , articulo);
 
   };
+
+  modificarArticuloComentario(articulo:Articulos) {
+    console.log(articulo, 'antes de modificar')
+    return this.http.put(this.URL_API2 + `/${articulo._id}` , articulo);
+
+  };
+
 
   deleteArticulo(_id:string) {
     return this.http.delete(this.URL_API + `/${_id}`);

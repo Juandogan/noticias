@@ -7,11 +7,18 @@ import { existsSync } from 'fs';
 import { join } from 'path';
 import { AppServerModule } from './src/main.server';
 
+const path = require('path')
+const bodyParser = require('body-parser');
+
+
+const cors = require('cors');
+  
+
 // The Express app is exported so that it can be used by serverless Functions.
 export function app(): express.Express {
   const server = express();
-  const distFolder = join(process.cwd(), '../browser');
-  // const distFolder = join(process.cwd(), 'dist/frontend/browser');
+  // const distFolder = join(process.cwd(),  'dist/frontend/browser'); para desarrollo
+  const distFolder = join(process.cwd(),'../browser');
   const indexHtml = existsSync(join(distFolder, 'index.original.html')) ? 'index.original.html' : 'index';
 
   // Our Universal express-engine (found @ https://github.com/angular/universal/tree/main/modules/express-engine)
@@ -21,6 +28,13 @@ export function app(): express.Express {
 
   server.set('view engine', 'html');
   server.set('views', distFolder);
+
+  server.use(bodyParser.json({ limit: '200mb' }));
+  server.use(bodyParser.urlencoded({ limit: '200mb', extended: true }));
+  server.use(cors());
+
+
+
  
   // Example Express Rest API endpoints
   // server.get('/api/**', (req, res) => { });

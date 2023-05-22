@@ -45,11 +45,11 @@
 
     <div class="hov margenes" style=" background-color:orange; box-shadow: 1px 1px 3px rgb(57, 57, 57);" (mouseover)="cambioImagen1()">
       <a  target="_blank" href="/articulo/{{this.ruta}}" >
-            <p class="titulo" style="margin-top:15px; margin-left:10px"  >
+            <p class="titulo" style="margin-top:15px; margin-left:10px ; padding-right: 10px;"  >
               {{this.data?.art1}}
 
                 <h1 style="padding-bottom:10px; margin-top:-22px; margin-left: 20px; bottom:10px; color: brown; font-size: 15px;margin-bottom: 20px;">
-                  Por: Alex Guillermo Martín</h1>
+                  Por: {{this.data?.autor1}}</h1>
 
 
 
@@ -61,7 +61,7 @@
       <a   target="_blank" href="/articulo/{{this.ruta}}" target="_blank">
     <p class="titulo">{{ this.data?.art2}} </p>
     <h1 style="padding-bottom:10px; margin-top:-22px; margin-left: 20px; bottom:10px; color: brown; font-size: 15px;margin-bottom: 20px;">
-      Por: Alex Guillermo Martín</h1>
+      Por: {{this.data?.autor2}}</h1>
 
 
       </a>
@@ -74,7 +74,7 @@
   <p class="titulo ">
     {{this.data?.art3}} </p>
     <h1 style="padding-bottom:10px; margin-top:-22px; margin-left: 20px; bottom:10px; color: brown; font-size: 15px;margin-bottom: 20px;">
-      Por: Corina María Altamirano</h1>
+      Por: {{this.data?.autor3}}</h1>
 
   </a>
   <!-- <p class="autor">Por: {{data[2]?.autor}}</p> -->
@@ -85,7 +85,7 @@
       target="_blank">
   <p class="titulo" >{{this.data?.art4}}</p>
   <h1 style="padding-bottom:10px; margin-top:-22px; margin-left: 20px; bottom:10px; color: brown; font-size: 15px;margin-bottom: 20px;">
-    Por: Mariana Neme</h1>
+    Por: {{this.data?.autor4}}</h1>
 
   </a>
   <!-- <p class="autor">Por: {{data[3]?.autor}}</p> -->
@@ -95,7 +95,7 @@
       target="_blank">
   <p class="titulo" >{{this.data?.art5}}</p>
   <h1 style="padding-bottom:10px; margin-top:-22px; margin-left: 20px; bottom:10px; color: brown; font-size: 15px;margin-bottom: 20px;">
-    Por: Horacio Beto Fuentes</h1>
+    Por: {{this.data?.autor5}}</h1>
 </a>
   <!-- <p class="autor">Por: {{data[4]?.autor}}</p> -->
   </div>
@@ -104,7 +104,7 @@
     target="_blank">
     <p class="titulo"  >{{this.data?.art6}}</p>
     <h1 style="padding-bottom:10px; margin-top:-22px; margin-left: 20px; bottom:10px; color: brown; font-size: 15px;margin-bottom: 20px;">
-      Por: J. Lucas Sbriglio</h1>
+      Por: {{this.data?.autor6}}</h1>
     </a>
     <!-- <p class="autor">Por: {{data[4]?.autor}}</p> -->
     </div>
@@ -113,16 +113,16 @@
       target="_blank">
       <p class="titulo" >{{this.data?.art7}}</p>
       <h1 style="padding-bottom:10px; margin-top:-22px; margin-left: 20px; bottom:10px; color: brown; font-size: 15px;margin-bottom: 20px;">
-        Por: José Herminio Hernández</h1>
+        Por: {{this.data?.autor7}}</h1>
       </a>
       <!-- <p class="autor">Por: {{data[4]?.autor}}</p> -->
       </div>
       <div class="hov margenes"  style="background-color: orange; box-shadow: 1px 1px 3px rgb(57, 57, 57);"(mouseover)="cambioImagen8()">
         <a routerLink="/articulo/{{this.ruta}}"
         target="_blank">
-        <!-- <p class="titulo">{{this.data?.art8}}</p> -->
+        <p class="titulo">{{this.data?.art8}}</p>
         <h1 style="padding-bottom:10px; margin-top:-22px; margin-left: 20px; bottom:10px; color: brown; font-size: 15px;margin-bottom: 20px;">
-          Por: Marcelo Lisnovsky</h1>
+          Por: {{this.data?.autor8}}</h1>
 
         </a>
         <!-- <p class="autor">Por: {{data[4]?.autor}}</p> -->
@@ -161,7 +161,7 @@
         <svg style="margin-top: -3px; margin-left:-3px" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
           <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
         </svg>
-        Alex Guillermo Martín</h6>
+        {{this.data?.autor1}}</h6>
     </div>
   </div>
 
@@ -188,7 +188,7 @@
           <svg style="margin-top: -3px; margin-left:-3px" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
             <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
           </svg>
-          Alex Guillermo Martín</h6>
+          {{this.data?.autor2}}</h6>
 
       </div>
     </div>
@@ -211,7 +211,7 @@
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
           <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
         </svg>
-        Corina María Altamirano</h6>
+        {{this.data?.autor3}}</h6>
 
         </div>
       </div>
@@ -241,7 +241,7 @@
         <svg style="margin-top:-1px" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
           <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
         </svg>
-        Mariana Neme</h6>
+        {{this.data?.autor4}}</h6>
 
         </div>
       </div>
@@ -267,7 +267,7 @@
         <svg  style="margin-top:-5px" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
           <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
         </svg>
-        Horacio Beto Fuentes</h6>
+        {{this.data?.autor5}}</h6>
         </div>
       </div>
 
@@ -289,7 +289,7 @@
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
           <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
         </svg>
-        J. Lucas Sbriglio</h6>
+        {{this.data?.autor6}}</h6>
 
           </div>
         </div>
@@ -319,7 +319,7 @@
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
           <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
         </svg>
-        J. Lucas Sbriglio</h6>
+        {{this.data?.autor7}}</h6>
 
             </div>
           </div>
@@ -330,6 +330,11 @@
               <a routerLink="/articulo/{{this.data?.resultadoID8}}">
            <img class="img" src="{{data?.resultadoImagen8}}" width="100%" height="100%" alt="" >
                   </a>
+                  <h6 style=" margin-top: -10px; font-size: 12px;" >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                      <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
+                    </svg>
+                    {{this.data?.autor8}}</h6>
               </div>
 
 
@@ -339,11 +344,7 @@
                <p class="titulo"style="margin-left:0px">{{data.art8}}</p>
         </a>
 
-      <h6 style="padding-left: 0px; margin-top: -10px; font-size: 12px;" >
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
-          <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
-        </svg>
-        Marcelo Lisnovsky</h6>
+     
 
               </div>
             </div>

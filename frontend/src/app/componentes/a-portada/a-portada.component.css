@@ -169,17 +169,17 @@
     .categoria{font-size:12px; margin-left:10px}
     .marco{margin-left:-22px}
     .logo{width: 160px; margin-top:20px;
-    margin-left:-5x;
+      margin-left: -10px;
     
     }
     .titular{
  
-      margin-left:20px!important;
+      margin-left:10px!important;
     }
 
     .categoria{
  
-      margin-left:20px!important;
+      margin-left:10px!important;
     }
     .subtitulo{display:none}
     .cuadroTitulo{ top: 247px!important;} 

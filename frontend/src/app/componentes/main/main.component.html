@@ -20,7 +20,7 @@
 
     <div class="portadaAcomoda" *ngIf="this.articulos">
       <div  *ngIf="this.publi[0].img7" [ngClass]="{'sacar':estadoBtn}" class="popup">
-      <img  [@slideDown] src="{{this.publi[0].img7}}" alt="" style=" width: 100%;    margin-bottom: 20px;
+      <img    src="{{this.publi[0].img7}}" alt="" style=" width: 100%;    margin-bottom: 20px;
       padding-right: 20px;
       margin-top: 20px;
       width: 100%;
@@ -50,13 +50,11 @@
 
     <!-- EDITORIAL COMIEZA AQUI -->
 
-    <div style="color: white; background-color: orange; margin-top: 10px; " >
-      <h1 class="indice subefuente fuenteTest" style="margin-top: 20px; text-transform: uppercase">
+    <div class="divEditorial" >
+      <h1 class="indice subefuente fuenteTest quitar600" style="margin-top: 20px; text-transform: uppercase">
  
       </h1>
-      <div *ngIf="this.articulos" class="fondoEditorial" style="
-            background-image: url('../../../assets/1.png');
-            background-size: cover; padding-right: 20px; padding-left: 20px;">
+      <div *ngIf="this.articulos" class="fondoEditorial" >
 
         <div>
           <br>

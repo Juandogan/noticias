@@ -22,7 +22,8 @@ import { PublicidadHorizontalComponent } from './componentes/publicidad-horizont
 import { SanetizerPipe } from './pipes/sanetizer.pipe';  
 import { ComentariosComponent } from './componentes/comentarios/comentarios.component';
 import { FormsModule } from '@angular/forms';
-import { LateralIntercaladoComponent } from '../app/componentes/lateral-intercalado/lateral-intercalado.component'
+import { LateralIntercaladoComponent } from '../app/componentes/lateral-intercalado/lateral-intercalado.component';
+import { Main2Component } from './componentes/main2/main2.component'
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { LateralIntercaladoComponent } from '../app/componentes/lateral-intercal
     PublicidadHorizontalComponent,
     SanetizerPipe,
     ComentariosComponent,
-    LateralIntercaladoComponent
+    LateralIntercaladoComponent,
+    Main2Component
     
     
 

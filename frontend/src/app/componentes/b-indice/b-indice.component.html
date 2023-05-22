@@ -307,9 +307,6 @@
          </a>
 
             </div>
-
-
-
             <div  class="col-7" style="border-radius: 10px; background-color:#ffa500;" (click)="cambioImagen7()">
               <a routerLink="/articulo/{{this.data?.resultadoID7}}">
       <p class="titulo"style="margin-left:0px"> {{data?.art7}}</p>
@@ -330,22 +327,21 @@
               <a routerLink="/articulo/{{this.data?.resultadoID8}}">
            <img class="img" src="{{data?.resultadoImagen8}}" width="100%" height="100%" alt="" >
                   </a>
-                  <h6 style=" margin-top: -10px; font-size: 12px;" >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
-                      <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
-                    </svg>
-                    {{this.data?.autor8}}</h6>
+      
               </div>
 
 
-
-              <div  class="col-7" style="border-radius: 10px; background-color:#ffa500;margin-bottom: 20px;" (click)="cambioImagen8()">
-                <a routerLink="/articulo/{{this.data?.resultadoID8}}">
-               <p class="titulo"style="margin-left:0px">{{data.art8}}</p>
+              <div  class="col-7" style="border-radius: 10px; background-color:#ffa500;" (click)="cambioImagen8()">
+                <a routerLink="/articulo/{{this.data?.resultadoID7}}">
+        <p class="titulo"style="margin-left:0px"> {{data?.art8}}</p>
         </a>
-
-     
-
+  
+        <h6 style=" margin-top: -10px; font-size: 12px;" >
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+            <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
+          </svg>
+          {{this.data?.autor8}}</h6>
+  
               </div>
             </div>
             <div style="  width: 100%; background-color:orange; margin-top: 10px; margin-bottom: 10px;border-radius: 10px">

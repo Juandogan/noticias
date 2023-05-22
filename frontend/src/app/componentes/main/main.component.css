@@ -5,6 +5,7 @@
     background-color: orange;
     border-left: 20px solid rgb(43, 43, 43);
     border-right: 20px solid rgb(44, 44, 44);}
+    .divEditorial{color: white; background-color: orange; margin-top: 10px;}
   
   .indice{
     margin-left:30px;
@@ -22,6 +23,10 @@
   
   .portadaAcomoda{padding:10px; padding-left:0px; padding-right: 0px;}
 
+  .fondoEditorial{
+  background-image: url('../../../assets/1.png');
+  background-size: cover; padding-right: 20px; padding-left: 20px;
+}
   @media (max-width:766px){
     .fondoEditorial{
       height: auto;}
@@ -36,6 +41,9 @@
       height: auto;
    margin-left: 20px;
    margin-right: 20px}
+
+
+
    .editorialParrafo{
     text-align: left;
       letter-spacing: 1px;
@@ -114,11 +122,19 @@
   {
   .quitar600{display:none}
   .popup{display:block; margin-bottom: 10px; width: 100%;}
+.divEditorial{margin-top: 0px!important;}
+
+.fondoEditorial{
+ 
+  background-size: cover; padding-right: 0px; padding-left: 0px;
+}
   .div-principal{
     border-left:  0px solid rgb(43, 43, 43);
     border-right: 0px solid rgb(44, 44, 44);}
   
-  
+    .fondoEditorial {     
+   margin-left: 0px;
+   margin-right: 0px}
 
   
   

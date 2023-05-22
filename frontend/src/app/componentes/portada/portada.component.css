@@ -73,7 +73,7 @@
 .lugarLogo {
   position: absolute;
   top: -115px;
-  left: 3%;
+ 
 }
 
 /* Recuadro negro de la portada */
@@ -84,6 +84,14 @@
   left: 20px;
   right: 20px;
   background-color: rgba(0, 0, 0, 0.603);
+}
+
+
+.imgLogo2 {
+ 
+  display:none;
+  left: 0%!important;
+
 }
 
 .fade-in-image {
@@ -151,6 +159,9 @@
   }
 }
 @media (max-width: 600px) {
+
+  
+  
   .titulo {
     font-size: 25px;
     line-height: 28px;
@@ -161,13 +172,13 @@
   }
   .categoria {
     font-size: 12px;
-    margin-left: 10px;
+    margin-left: 10px!important;
   }
 
   .logo {
     width: 160px;
     margin-top: 20px;
-    margin-left: -5x;
+    left:1px
   }
 
   .cuadroTitulo {

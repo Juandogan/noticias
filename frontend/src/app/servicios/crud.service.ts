@@ -56,7 +56,13 @@ export class CrudService {
 
   };
 
-  
+  getOneRevista(_id:any){
+
+    return this.http.get(this.URL_API + `/${_id}`);
+    
+
+
+  }
   getAnuncios() {
     // var precio:number = Number(this.pedido.precio)    no se pa que funciona
     return this.http.get(this.URL_API3);

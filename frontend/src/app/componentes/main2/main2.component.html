@@ -1,0 +1,80 @@
+<div  >
+    <div *ngIf="loader" class="text-center div-principal" style="height: 120vh; background-color: orange;">
+      
+    <div  class="spinner-border text-dark" role="status" style="margin-top: 30vh;">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+    <div *ngIf="!loader" class="div-principal">
+  
+      <div *ngIf="this.articulos" class="quitar600" style="margin-right: 25px; text-align: right; color:white; ">
+        <h6 style="font-size: 15px; font-weight: 800; padding-top: 10px">
+          NRO. 
+          <span>{{this.articulos?.numero}}</span>
+          <span style="margin-left: 2px">|</span>
+          <span style="margin-left: 5px; text-transform: uppercase">MES: {{this.articulos?.mes}}</span>
+          <span style="margin-left: 2px">|</span>
+          <span style="margin-left: 2px">AÑO: {{this.articulos?.anio}}</span>
+        </h6>
+      </div>
+  
+      <div class="portadaAcomoda" *ngIf="this.articulos">
+        <div  *ngIf="this.publi?.img7" [ngClass]="{'sacar':estadoBtn}" class="popup">
+        <img    src="{{this.publi?.img7}}" alt="" style=" width: 100%;    margin-bottom: 20px;
+        padding-right: 20px;
+        margin-top: 20px;
+        width: 100%;
+    ">
+    <button  (click)="cerrar()" class="btn btn-dark" style="    position: absolute;
+    top: 45px;
+    right: 9px;
+    border-radius: 111px;">X</button>
+      </div>
+        <app-a-portada [publi]="this.publi" [data]="this.articulos"></app-a-portada>
+  
+        <app-publicidadx3 [publi]="this.publi" class="quitar600" *ngIf="this.publi" ></app-publicidadx3>
+  
+      </div>
+      <div *ngIf="this.articulos" >
+        <h4  *ngIf="this.articulos" class="indice quitar600" style="text-transform: uppercase; margin-top: 10px;">INDICE - {{this.articulos.mes}} <span>NRO. {{this.articulos.numero}}</span> - AÑO  {{this.articulos.anio}} </h4>
+        
+        <app-b-indice  [data]="this.nota[0]"></app-b-indice> 
+      </div>
+      <!-- <app-b-indice></app-b-indice> -->
+      <app-publicidad-horizontal *ngIf="this.publi" [publi]="this.publi"></app-publicidad-horizontal>
+      <div style="background-color: rgb(59, 52, 0, 1)">
+        <!-- <a href="{{this.anuncios[0].link7}}" target="_blank"> -->
+        <!-- <img (click)="sumarContadorAunciante(7)" src={{this.anuncios[0]?.img7}}  width="100%" alt="" class="borde" > -->
+  
+        <!-- </a> -->
+      </div>
+  
+      <!-- EDITORIAL COMIEZA AQUI -->
+  
+      <div class="divEditorial" >
+        <h1 class="indice subefuente fuenteTest quitar600" style="margin-top: 20px; text-transform: uppercase">
+   
+        </h1>
+        <div *ngIf="this.articulos" class="fondoEditorial" >
+  
+          <div>
+            <br>
+            <p class="editorialParrafo" [innerHTML]=this.nota[0]?.editorial>
+            </p>
+               <br />
+          </div>
+        </div>
+        <!-- <div class="poner600">
+      <img src="../../../assets/image 12.png" width="100%" height="200px" alt="" style="margin-top: 0px;">
+      </div> -->
+  
+    
+        <br />
+        <app-publicidad-horizontal class="quitar600" *ngIf="this.publi" [publi]="this.publi"></app-publicidad-horizontal>
+        <br class="quitar600">
+        <app-carousel-revista></app-carousel-revista>
+      </div>
+      <app-footer></app-footer>
+    </div>
+  
+  </div>

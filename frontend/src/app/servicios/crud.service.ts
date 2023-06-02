@@ -15,6 +15,7 @@ export class CrudService {
   readonly URL_API2  = "http://191.101.18.184:3000/ccam";
   readonly URL_API3  = "http://191.101.18.184:3000/anunciante";
   readonly URL_API4  = "http://191.101.18.184:3000/categorias";
+  readonly URL_API5  = "http://191.101.18.184:3000/carousel";
 
 
   cambioPantalla = true;
@@ -27,7 +28,10 @@ export class CrudService {
           this.unArticulo = new Articulos();
   
   }
-
+  pedirCaousel(){
+    return this.http.get(this.URL_API5);
+    
+  }
 
   cancel():void {
     this.location.back(); // <-- go back to previous location on cancel

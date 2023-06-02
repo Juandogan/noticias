@@ -57,10 +57,10 @@ text-transform: uppercase;
 
 
 .principal  {
-  background-color: rgb(99, 84, 0);
+  background-color: rgba(99, 84, 0, 0.404);
 
   text-align: left; margin-left: 20px; margin-right: 20px; border-radius: 4px;
-   
+  
   }
   
   @media (max-width:700px)

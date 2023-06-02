@@ -13,10 +13,10 @@
   </div>
   <div class="swiper-wrapper">
     <div *ngFor="let image of slideData" class="swiper-slide" style="padding: 1px!important; border-radius: 10px;">
-      <a href={{image.subtitulo}} target="_blank">
+      <a href={{image.link}} target="_blank">
         <p>{{image.titulo}}</p>
 
-        <img [src]="image.image"
+        <img [src]="image.subtitulo"
           style="width: 100%;  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.219); border-radius: 4px;" />
       </a>
     </div>

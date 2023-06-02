@@ -1,7 +1,12 @@
-import { Component } from '@angular/core';
+import { TemplateRef } from '@angular/core';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { Component, Inject, OnInit,  Renderer2, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import { CrudService } from 'src/app/servicios/crud.service';
 import { trigger, state, style, animate, transition } from '@angular/animations';
+import { isPlatformBrowser, isPlatformServer } from '@angular/common';
+import { PLATFORM_ID } from '@angular/core';
 
+import { ModalDirective } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-main',
@@ -25,13 +30,22 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
 
 
 
-export class MainComponent {
-
+export class MainComponent implements AfterViewInit {
+  modalRef?: BsModalRef;
   estadoBtn= false
   articulos:any
   loader = true
   publi:any
-  constructor(private crudservice:CrudService){
+  abrir= "modal"
+
+
+  @ViewChild('autoShownModal', { static: false }) autoShownModal?: ModalDirective;
+  isModalShown = false;
+
+  
+
+  constructor(private modalService: BsModalService, private crudservice:CrudService, @Inject(PLATFORM_ID) private _platformId: Object,private renderer: Renderer2, private el: ElementRef){
+    //  this.template = {} as TemplateRef<any> ;
 
     this.crudservice.getArticulos().subscribe(res=>{
 
@@ -56,9 +70,51 @@ export class MainComponent {
 
   }
 
+  ngOnInit(): void {
+   
+
+    if (isPlatformBrowser(this._platformId)) {
+      
+
+
+     }
+  
+    
+  }
+  ngAfterViewInit(): void {
+    
+    if (isPlatformBrowser(this._platformId)) {
+
+      const screenWidth = window.innerWidth;
+      if (screenWidth < 600) {
+                this.showModal()
+      }
+          }
+    
+  }
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template);
+  }
+
+
  
 cerrar(){
   this.estadoBtn = true
 }
   
+
+
+
+
+showModal(): void {
+  this.isModalShown = true;
+}
+
+hideModal(): void {
+  this.autoShownModal?.hide();
+}
+
+onHidden(): void {
+  this.isModalShown = false;
+}
 }

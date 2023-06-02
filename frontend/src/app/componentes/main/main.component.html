@@ -5,7 +5,7 @@
     <span class="visually-hidden">Loading...</span>
   </div>
 </div>
-  <div *ngIf="!loader" class="div-principal">
+  <div *ngIf="!loader" class="div-principal" data-bs-dismiss="modal">
 
     <div *ngIf="this.articulos" class="quitar600" style="margin-right: 25px; text-align: right; color:white; ">
       <h6 style="font-size: 15px; font-weight: 800; padding-top: 10px">
@@ -19,7 +19,8 @@
     </div>
 
     <div class="portadaAcomoda" *ngIf="this.articulos">
-      <div  *ngIf="this.publi[0].img7" [ngClass]="{'sacar':estadoBtn}" class="popup">
+
+      <!-- <div  *ngIf="this.publi[0].img7" [ngClass]="{'sacar':estadoBtn}" class="popup">
       <img    src="{{this.publi[0].img7}}" alt="" style=" width: 100%;    margin-bottom: 20px;
       padding-right: 20px;
       margin-top: 20px;
@@ -29,7 +30,37 @@
   top: 45px;
   right: 9px;
   border-radius: 111px;">X</button>
+    </div> -->
+
+
+
+    
+    <div class="poner600" *ngIf="isModalShown" [config]="{ show: true }" (onHidden)="onHidden()" bsModal #autoShownModal="bs-modal"
+         class="modal fade" tabindex="-1" role="dialog" aria-labelledby="dialog-auto-name">
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content" style="background-color: rgba(0, 0, 0, 0.26);">
+      
+          <button type="button" class="btn btn-danger" (click)="hideModal()" style="color:white; width: 40px; border-radius: 40px;z-index: 999999999999; right: 2px;position:absolute">X</button>
+    
+          <div class="modal-body" style="padding: 0px!important; top:10px; z-index: 999999999;">
+            <a href="{{this.publi[0].link7}}" target="_blank" style="cursor: pointer;">
+            <img    src="{{this.publi[0].img7}}" alt="" style=" width: 100%; width: 100%; ">
+          </a>
+          </div>
+        </div>
+      </div>
     </div>
+
+
+
+
+
+
+
+
+
+
+    
       <app-a-portada [publi]="this.publi" [data]="this.articulos[0]"></app-a-portada>
 
       <app-publicidadx3 [publi]="this.publi" class="quitar600" *ngIf="this.publi" ></app-publicidadx3>

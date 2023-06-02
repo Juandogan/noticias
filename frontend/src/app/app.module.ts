@@ -24,6 +24,8 @@ import { ComentariosComponent } from './componentes/comentarios/comentarios.comp
 import { FormsModule } from '@angular/forms';
 import { LateralIntercaladoComponent } from '../app/componentes/lateral-intercalado/lateral-intercalado.component';
 import { Main2Component } from './componentes/main2/main2.component'
+import { FooterCardComponent } from './componentes/footer-card/footer-card.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 
 @NgModule({
@@ -44,7 +46,8 @@ import { Main2Component } from './componentes/main2/main2.component'
     SanetizerPipe,
     ComentariosComponent,
     LateralIntercaladoComponent,
-    Main2Component
+    Main2Component,
+    FooterCardComponent
     
     
 
@@ -54,7 +57,8 @@ import { Main2Component } from './componentes/main2/main2.component'
     AppRoutingModule,
     NgxUsefulSwiperModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ModalModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

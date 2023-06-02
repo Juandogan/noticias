@@ -86,6 +86,7 @@ var post =  this.nota.comentarios + '<div>' + moment(hoy).format("DD/MM/YY hh:mm
                { this.comentario = "" ;this.nombre =""; this.email=""              
                   this.comentario = this.nota
                   this.loading = false
+                  console.log(res)
                   alert('Mensaje enviado')
                   var aux = this.nota.comentarios
                   if( aux  ){

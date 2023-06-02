@@ -3,7 +3,8 @@ import { SwiperOptions } from 'swiper';
 import{ carouselDataItems } from '../../models/dataCarousel'
 import { PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser, isPlatformServer } from '@angular/common';
-
+import { Carousel } from '../../models/carousel'
+import { CrudService } from 'src/app/servicios/crud.service';
 
 @Component({
   selector: 'app-carousel-revista',
@@ -14,17 +15,22 @@ export class CarouselRevistaComponent implements OnInit, AfterViewInit  {
 
 
   title = 'ng-swiper-demo';
-  slideData = carouselDataItems
+
+  slideData:any
   carga= false
   swipperisActive=false
 
-    constructor(@Inject(PLATFORM_ID) private _platformId: Object) {
-
+    constructor(@Inject(PLATFORM_ID) private _platformId: Object, private crudService:CrudService) {
+      this.crudService.pedirCaousel().subscribe(res=>{
+        console.log(res,"****")
+        this.slideData= res as Carousel
+        this.slideData = this.slideData.reverse()
+      })
       }
 
       config: SwiperOptions = {
         pagination: { el: '.swiper-pagination', clickable: true },
-        autoHeight: true,
+        autoHeight: false,
         allowTouchMove: true,
             breakpoints: {
           1024: {
@@ -62,7 +68,7 @@ export class CarouselRevistaComponent implements OnInit, AfterViewInit  {
 
   ngOnInit(): void {
    
-
+ 
     if (isPlatformBrowser(this._platformId)) {
       this.swipperisActive = true;
      }

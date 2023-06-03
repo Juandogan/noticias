@@ -71,7 +71,7 @@
       <app-b-indice  [data]="this.articulos[0]"></app-b-indice> 
     </div>
     <!-- <app-b-indice></app-b-indice> -->
-    <app-publicidad-horizontal *ngIf="this.publi" [publi]="this.publi"></app-publicidad-horizontal>
+    <app-publicidad-horizontal *ngIf="publi" [publi]="publi"></app-publicidad-horizontal>
     <div style="background-color: rgb(59, 52, 0, 1)">
       <!-- <a href="{{this.anuncios[0].link7}}" target="_blank"> -->
       <!-- <img (click)="sumarContadorAunciante(7)" src={{this.anuncios[0]?.img7}}  width="100%" alt="" class="borde" > -->
@@ -100,7 +100,7 @@
 
   
       <br />
-      <app-publicidad-horizontal class="quitar600" *ngIf="this.publi" [publi]="this.publi"></app-publicidad-horizontal>
+      <app-publicidad-horizontal2 class="quitar600" *ngIf="publi" [publi]="publi"></app-publicidad-horizontal2>
       <br class="quitar600">
       <app-carousel-revista></app-carousel-revista>
     </div>

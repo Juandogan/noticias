@@ -26,6 +26,7 @@ import { LateralIntercaladoComponent } from '../app/componentes/lateral-intercal
 import { Main2Component } from './componentes/main2/main2.component'
 import { FooterCardComponent } from './componentes/footer-card/footer-card.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { PublicidadHorizontal2Component } from './componentes/publicidad-horizontal2/publicidad-horizontal2.component';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     ComentariosComponent,
     LateralIntercaladoComponent,
     Main2Component,
-    FooterCardComponent
+    FooterCardComponent,
+    PublicidadHorizontal2Component
     
     
 

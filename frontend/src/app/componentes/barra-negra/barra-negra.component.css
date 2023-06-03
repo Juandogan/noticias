@@ -160,7 +160,7 @@ span{color:orange}
 
               @media (max-width: 600px)
               {
-                .acomoda600{margin-top: 3px;}
+                .acomoda600{margin-top: 0px;}
                 .suscribirse{margin-left: 10px!important;}
                 .top{margin-top: 3px; }
                 .redes{margin-top:8px ; margin-right: 12px}

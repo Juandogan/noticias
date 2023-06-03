@@ -26,16 +26,7 @@ export class LateralIntercaladoComponent implements OnInit {
   sumarContador(x:any){
 
  
-    if(x === 12 ){
-      var aux = this.anuncios[0]?.contador12 + 1 
-      this.anuncios[0].contador12 = aux
-          this.crudService.modificarAnuncios(this.anuncios[0]).subscribe(res=>{
-          console.log(res,this.anuncios[0].contador12 )
-    })
-  }
-
-
-   
+    
   if(x === 13 ){
     var aux = this.anuncios[0]?.contador13 + 1 
     this.anuncios[0].contador13 = aux
@@ -49,6 +40,23 @@ if(x === 14 ){
   this.anuncios[0].contador14 = aux
       this.crudService.modificarAnuncios(this.anuncios[0]).subscribe(res=>{
       console.log(res,this.anuncios[0].contador14 )
+})
+}
+
+if(x === 15 ){
+  var aux = this.anuncios[0]?.contador15 + 1 
+  this.anuncios[0].contador15 = aux
+      this.crudService.modificarAnuncios(this.anuncios[0]).subscribe(res=>{
+      console.log(res,this.anuncios[0].contador15 )
+})
+}
+
+
+if(x === 16 ){
+  var aux = this.anuncios[0]?.contador16 + 1 
+  this.anuncios[0].contador16 = aux
+      this.crudService.modificarAnuncios(this.anuncios[0]).subscribe(res=>{
+      console.log(res,this.anuncios[0].contador16 )
 })
 }
    }

@@ -19,18 +19,15 @@ export class CarouselRevistaComponent implements OnInit, AfterViewInit  {
   slideData:any
   carga= false
   swipperisActive=false
+  swipperisActive2:any
 
     constructor(@Inject(PLATFORM_ID) private _platformId: Object, private crudService:CrudService) {
-      this.crudService.pedirCaousel().subscribe(res=>{
-        console.log(res,"****")
-        this.slideData= res as Carousel
-        this.slideData = this.slideData.reverse()
-      })
+  
       }
 
       config: SwiperOptions = {
         pagination: { el: '.swiper-pagination', clickable: true },
-        autoHeight: false,
+        autoHeight: true,
         allowTouchMove: true,
             breakpoints: {
           1024: {
@@ -59,7 +56,16 @@ export class CarouselRevistaComponent implements OnInit, AfterViewInit  {
 
       ngAfterViewInit() {
         if (isPlatformBrowser(this._platformId)) {
-          this.swipperisActive = true;
+          this.crudService.pedirCaousel().subscribe(res=>{
+            this.swipperisActive = false
+            console.log(res,"****")
+            this.slideData= res as Carousel
+            this.slideData = this.slideData.reverse()
+            this.swipperisActive2 = true
+            this.swipperisActive = true;
+            
+          })
+          
          }
     
 
@@ -70,7 +76,9 @@ export class CarouselRevistaComponent implements OnInit, AfterViewInit  {
    
  
     if (isPlatformBrowser(this._platformId)) {
-      this.swipperisActive = true;
+      
+      
+      // this.swipperisActive = true;
      }
 
 

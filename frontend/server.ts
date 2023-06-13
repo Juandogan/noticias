@@ -18,7 +18,7 @@ const cors = require('cors');
 export function app(): express.Express {
   const server = express();
   // const distFolder = join(process.cwd(),  'dist/frontend/browser'); para desarrollo  '../browser'
-  const distFolder = join(process.cwd(),'../browser');
+  const distFolder = join(process.cwd(),'dist/frontend/browser');
   const indexHtml = existsSync(join(distFolder, 'index.original.html')) ? 'index.original.html' : 'index';
 
   // Our Universal express-engine (found @ https://github.com/angular/universal/tree/main/modules/express-engine)

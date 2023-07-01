@@ -47,18 +47,19 @@ export class MainComponent implements AfterViewInit {
   constructor(private modalService: BsModalService, private crudservice:CrudService, @Inject(PLATFORM_ID) private _platformId: Object,private renderer: Renderer2, private el: ElementRef){
     //  this.template = {} as TemplateRef<any> ;
 
+
+  }
+
+  ngOnInit(): void {
+   
     this.crudservice.getArticulos().subscribe(res=>{
 
       this.articulos = res
       this.articulos = this.articulos.reverse() 
-      console.log(this.articulos)
-
-
       this.loader = false
           //sumar contador
-    this.articulos[0].vistas = this.articulos[0]?.vistas + 1 
-    console.log( this.articulos[0].vistas)
-    this.crudservice.modificarArticulo(this.articulos[0]).subscribe(res => console.log(res))
+    // this.articulos[0].vistas = this.articulos[0]?.vistas + 1 
+    // this.crudservice.modificarArticulo(this.articulos[0]).subscribe(res => console.log(res))
 
     })
     this.crudservice.getAnuncios().subscribe(res=>{
@@ -68,17 +69,15 @@ export class MainComponent implements AfterViewInit {
     })  
 
 
-  }
-
-  ngOnInit(): void {
-   
-
     if (isPlatformBrowser(this._platformId)) {
-      
+      const htmlElement = document.querySelector('html');
 
-
-     }
-  
+      // Agregar el evento contextmenu
+      htmlElement?.addEventListener('contextmenu', function (e) {
+        e.preventDefault(); // Evitar que se muestre el menú contextual por defecto
+        alert('Si están interesados en el material fotográfico del CCAM, acuerden con la institución su uso. Contactarse a: info@culturademontania.org.ar');
+      });
+ }
     
   }
   ngAfterViewInit(): void {

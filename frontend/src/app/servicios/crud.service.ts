@@ -47,7 +47,7 @@ export class CrudService {
 
 
    uploadFile(formData:any){
-  console.log('Bandera por aca pasa NM', formData)
+  
   
    return this.http.post('http://168.197.50.191/upload' , formData)   // en produccion poner '/upload' por this.URL_API2
 
@@ -97,11 +97,11 @@ export class CrudService {
 
   };
 
-  modificarArticulo(articulo:Articulos) {
-    console.log(articulo, 'antes de modificar')
-    return this.http.put(this.URL_API + `/${articulo._id}` , articulo);
+  // modificarArticulo(articulo:Articulos) {
+  //   console.log(articulo, 'antes de modificar')
+  //   return this.http.put(this.URL_API + `/${articulo._id}` , articulo);
 
-  };
+  // };
 
   modificarArticuloComentario(articulo:Articulos) {
     console.log(articulo, 'antes de modificar')

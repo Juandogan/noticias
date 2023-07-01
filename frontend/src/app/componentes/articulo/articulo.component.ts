@@ -1,9 +1,10 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CrudService } from 'src/app//servicios/crud.service';
 import { Location } from '@angular/common';
 import { Articulos } from 'src/app/models/articulos';
-import { AsyncAction } from 'rxjs/internal/scheduler/AsyncAction';
+import { PLATFORM_ID } from '@angular/core';
+
 
 @Component({
   selector: 'app-articulo',
@@ -18,7 +19,9 @@ export class ArticuloComponent implements OnInit, OnDestroy {
   articulos2: any
   publi: any
   dataRelacionado2: any
-  constructor(private ruta: ActivatedRoute, public crudService: CrudService, private location: Location) { }
+  
+  constructor(private ruta: ActivatedRoute, public crudService: CrudService, private location: Location,
+    @Inject(PLATFORM_ID) private _platformId: Object ) { }
 
   nota: any
   auxContador: number = 0
@@ -39,9 +42,8 @@ export class ArticuloComponent implements OnInit, OnDestroy {
       } else {
         this.crudService.getCategorias(this.crudService.unArticulo.categoria).subscribe(res => {
           var aux = res
-          console.log(aux, "porfavor")
           this.dataRelacionado = this.randomNoRepeat(aux);
-          console.log(this.dataRelacionado, 'antes de pasar')
+          
 
           this.loader2 = true
         });
@@ -110,7 +112,7 @@ export class ArticuloComponent implements OnInit, OnDestroy {
   }
 
   saltos2(data: string) {
-    var aux2 = data.split('<h2>').join(`<h2 style=" font-weight: 700; 
+    var aux2 = data.split('<h2 style="margin-left:0px;text-align:justify;">').join(`<h2 style=" font-weight: 700; 
   line-height: 32px;
   letter-spacing: -1px;
   font-size:25px!important;
@@ -118,6 +120,15 @@ export class ArticuloComponent implements OnInit, OnDestroy {
   margin-bottom:15px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;};">
    `)
+
+   aux2 =  aux2 = data.split('<h2>').join(`<h2 style=" font-weight: 700; 
+   line-height: 32px;
+   letter-spacing: -1px;
+   font-size:25px!important;
+   color:orange;
+   margin-bottom:15px;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;};">
+    `)
 
     aux2 = aux2.split('<h3').join(`<h3 style="font-weight: 400; 
    line-height: 30px;
@@ -127,7 +138,8 @@ export class ArticuloComponent implements OnInit, OnDestroy {
    margin-bottom:10px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;"`)
 
-    aux2 = aux2.split('<p').join(`<p style="
+ 
+                                    aux2 = aux2.split('<p').join(`<p style="
                                     font-weight: 400;
                                     margin-top:-10px;
                                     font-size: 18px; 
@@ -136,6 +148,7 @@ export class ArticuloComponent implements OnInit, OnDestroy {
                                     text-align:justify;  
                            text-justify:inter-character;
                                     "`)
+                            
 
     // aux2 = aux2.split('<strong').join('<strong style="font-size:14px;  font-weight: 800;"')
     // aux2 = aux2.split('</p></strong>').join('</p></b>')
@@ -156,9 +169,10 @@ export class ArticuloComponent implements OnInit, OnDestroy {
     aux2 = aux2.split('"></oembed></figure>').join('" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')
     aux2 = aux2.split('<a ').join('<a target="_blank"')
     aux2 = aux2.split('style="margin-left:0px;text-align:center;"').join('style="text-align:center!important; font-size:15px!important; margin-top:-10px!important; margin-bottom:30px!important;"')
-    aux2 = aux2.split('style="text-align:center;"').join('style="text-align:center!important; font-size:15px!important; margin-top:-10px!important; margin-bottom:30px!important;"')
+    aux2 = aux2.split('style="text-align:center!important;"').join('style="text-align:center!important; font-size:15px!important; margin-top:-10px!important; margin-bottom:30px!important;"')
+    // aux2 = aux2.split('').join('style=""')
     
-
+    // text-align:center;"><strong>
 
     
    
@@ -190,99 +204,99 @@ export class ArticuloComponent implements OnInit, OnDestroy {
     return corte
   };
 
-  sumarContador() {
+  // sumarContador() {
 
-    //incrementa el contador
-    this.crudService.unArticulo.contadorComentarios = this.nota[0]?.contadorComentarios
-    this.crudService.unArticulo.correos = this.nota[0]?.correos
-    this.crudService.unArticulo.comentarios = this.nota[0]?.comentarios
-    this.crudService.unArticulo.vistas = this.auxContador + 1
-    this.crudService.unArticulo.imagen1 = this.nota[0]?.imagen1
-    this.crudService.unArticulo.imagen2 = this.nota[0]?.imagen2
-    this.crudService.unArticulo.imagen3 = this.nota[0]?.imagen3
-    this.crudService.unArticulo.categoria = this.nota[0]?.categoria;
-    this.crudService.unArticulo.fecha = this.nota[0]?.fecha;
-    this.crudService.unArticulo.fechaMod = this.nota[0]?.fechaMod;
-    this.crudService.unArticulo.autor = this.nota[0]?.autor
-    this.crudService.unArticulo.fotografia = this.nota[0]?.fotografia
-    this.crudService.unArticulo.edicionFotografia = this.nota[0]?.edicionFotografia
-    this.crudService.unArticulo.nota = this.nota[0]?.nota
-    this.crudService.unArticulo._id = this.nota[0]?._id
-    this.crudService.unArticulo.categoria = this.nota[0]?.categoria
-    this.crudService.unArticulo.titulo = this.nota[0]?.titulo
-    this.crudService.unArticulo.tituloAlt = this.nota[0]?.tituloAlt
-    this.crudService.unArticulo.subtitulo = this.nota[0]?.subtitulo
+  //   //incrementa el contador
+  //   this.crudService.unArticulo.contadorComentarios = this.nota[0]?.contadorComentarios
+  //   this.crudService.unArticulo.correos = this.nota[0]?.correos
+  //   this.crudService.unArticulo.comentarios = this.nota[0]?.comentarios
+  //   this.crudService.unArticulo.vistas = this.auxContador + 1
+  //   this.crudService.unArticulo.imagen1 = this.nota[0]?.imagen1
+  //   this.crudService.unArticulo.imagen2 = this.nota[0]?.imagen2
+  //   this.crudService.unArticulo.imagen3 = this.nota[0]?.imagen3
+  //   this.crudService.unArticulo.categoria = this.nota[0]?.categoria;
+  //   this.crudService.unArticulo.fecha = this.nota[0]?.fecha;
+  //   this.crudService.unArticulo.fechaMod = this.nota[0]?.fechaMod;
+  //   this.crudService.unArticulo.autor = this.nota[0]?.autor
+  //   this.crudService.unArticulo.fotografia = this.nota[0]?.fotografia
+  //   this.crudService.unArticulo.edicionFotografia = this.nota[0]?.edicionFotografia
+  //   this.crudService.unArticulo.nota = this.nota[0]?.nota
+  //   this.crudService.unArticulo._id = this.nota[0]?._id
+  //   this.crudService.unArticulo.categoria = this.nota[0]?.categoria
+  //   this.crudService.unArticulo.titulo = this.nota[0]?.titulo
+  //   this.crudService.unArticulo.tituloAlt = this.nota[0]?.tituloAlt
+  //   this.crudService.unArticulo.subtitulo = this.nota[0]?.subtitulo
 
-    this.crudService.unArticulo.posicion = this.nota[0]?.posicion
-    this.crudService.unArticulo.art1 = this.nota[0]?.art1
-    this.crudService.unArticulo.art2 = this.nota[0]?.art2
-    this.crudService.unArticulo.art3 = this.nota[0]?.art3
-    this.crudService.unArticulo.art4 = this.nota[0]?.art4
-    this.crudService.unArticulo.art5 = this.nota[0]?.art5
-    this.crudService.unArticulo.art6 = this.nota[0]?.art6
-    this.crudService.unArticulo.art7 = this.nota[0]?.art7
-    this.crudService.unArticulo.art8 = this.nota[0]?.art8
-    this.crudService.unArticulo.art9 = this.nota[0]?.art9
-    this.crudService.unArticulo.art10 = this.nota[0]?.art10
-    this.crudService.unArticulo.art11 = this.nota[0]?.art11
-    this.crudService.unArticulo.art12 = this.nota[0]?.art12
-
-
-    this.crudService.unArticulo.fecha = this.nota[0]?.fecha
-
-    this.crudService.unArticulo.resultadoCategoria = this.nota[0]?.resultadoCategoria
-    this.crudService.unArticulo.resultadoCategoria2 = this.nota[0]?.resultadoCategoria2
-    this.crudService.unArticulo.resultadoCategoria3 = this.nota[0]?.resultadoCategoria3
-    this.crudService.unArticulo.resultadoCategoria4 = this.nota[0]?.resultadoCategoria4
-    this.crudService.unArticulo.resultadoCategoria5 = this.nota[0]?.resultadoCategoria5
-    this.crudService.unArticulo.resultadoCategoria6 = this.nota[0]?.resultadoCategoria6
-    this.crudService.unArticulo.resultadoCategoria7 = this.nota[0]?.resultadoCategoria7
-    this.crudService.unArticulo.resultadoCategoria8 = this.nota[0]?.resultadoCategoria8
-    this.crudService.unArticulo.resultadoCategoria9 = this.nota[0]?.resultadoCategoria9
-    this.crudService.unArticulo.resultadoCategoria10 = this.nota[0]?.resultadoCategoria10
-    this.crudService.unArticulo.resultadoCategoria11 = this.nota[0]?.resultadoCategoria11
-    this.crudService.unArticulo.resultadoCategoria12 = this.nota[0]?.resultadoCategoria12
+  //   this.crudService.unArticulo.posicion = this.nota[0]?.posicion
+  //   this.crudService.unArticulo.art1 = this.nota[0]?.art1
+  //   this.crudService.unArticulo.art2 = this.nota[0]?.art2
+  //   this.crudService.unArticulo.art3 = this.nota[0]?.art3
+  //   this.crudService.unArticulo.art4 = this.nota[0]?.art4
+  //   this.crudService.unArticulo.art5 = this.nota[0]?.art5
+  //   this.crudService.unArticulo.art6 = this.nota[0]?.art6
+  //   this.crudService.unArticulo.art7 = this.nota[0]?.art7
+  //   this.crudService.unArticulo.art8 = this.nota[0]?.art8
+  //   this.crudService.unArticulo.art9 = this.nota[0]?.art9
+  //   this.crudService.unArticulo.art10 = this.nota[0]?.art10
+  //   this.crudService.unArticulo.art11 = this.nota[0]?.art11
+  //   this.crudService.unArticulo.art12 = this.nota[0]?.art12
 
 
+  //   this.crudService.unArticulo.fecha = this.nota[0]?.fecha
 
-    this.crudService.unArticulo.resultadoImagen = this.nota[0]?.resultadoImagen
-    this.crudService.unArticulo.resultadoImagen2 = this.nota[0]?.resultadoImagen2
-    this.crudService.unArticulo.resultadoImagen3 = this.nota[0]?.resultadoImagen3
-    this.crudService.unArticulo.resultadoImagen4 = this.nota[0]?.resultadoImagen4
-    this.crudService.unArticulo.resultadoImagen5 = this.nota[0]?.resultadoImagen5
-    this.crudService.unArticulo.resultadoImagen6 = this.nota[0]?.resultadoImagen6
-    this.crudService.unArticulo.resultadoImagen7 = this.nota[0]?.resultadoImagen7
-    this.crudService.unArticulo.resultadoImagen8 = this.nota[0]?.resultadoImagen8
-    this.crudService.unArticulo.resultadoImagen9 = this.nota[0]?.resultadoImagen9
-    this.crudService.unArticulo.resultadoImagen10 = this.nota[0]?.resultadoImagen10
-    this.crudService.unArticulo.resultadoImagen11 = this.nota[0]?.resultadoImagen11
-    this.crudService.unArticulo.resultadoImagen12 = this.nota[0]?.resultadoImagen12
-
-
-    this.crudService.unArticulo.resultadoID = this.nota[0]?.resultadoID
-    this.crudService.unArticulo.resultadoID2 = this.nota[0]?.resultadoID2
-    this.crudService.unArticulo.resultadoID3 = this.nota[0]?.resultadoID3
-    this.crudService.unArticulo.resultadoID4 = this.nota[0]?.resultadoID4
-    this.crudService.unArticulo.resultadoID5 = this.nota[0]?.resultadoID5
-    this.crudService.unArticulo.resultadoID6 = this.nota[0]?.resultadoID6
-    this.crudService.unArticulo.resultadoID7 = this.nota[0]?.resultadoID7
-    this.crudService.unArticulo.resultadoID8 = this.nota[0]?.resultadoID8
-    this.crudService.unArticulo.resultadoID9 = this.nota[0]?.resultadoID9
-    this.crudService.unArticulo.resultadoID10 = this.nota[0]?.resultadoID10
-    this.crudService.unArticulo.resultadoID11 = this.nota[0]?.resultadoID11
-    this.crudService.unArticulo.resultadoID12 = this.nota[0]?.resultadoID12
+  //   this.crudService.unArticulo.resultadoCategoria = this.nota[0]?.resultadoCategoria
+  //   this.crudService.unArticulo.resultadoCategoria2 = this.nota[0]?.resultadoCategoria2
+  //   this.crudService.unArticulo.resultadoCategoria3 = this.nota[0]?.resultadoCategoria3
+  //   this.crudService.unArticulo.resultadoCategoria4 = this.nota[0]?.resultadoCategoria4
+  //   this.crudService.unArticulo.resultadoCategoria5 = this.nota[0]?.resultadoCategoria5
+  //   this.crudService.unArticulo.resultadoCategoria6 = this.nota[0]?.resultadoCategoria6
+  //   this.crudService.unArticulo.resultadoCategoria7 = this.nota[0]?.resultadoCategoria7
+  //   this.crudService.unArticulo.resultadoCategoria8 = this.nota[0]?.resultadoCategoria8
+  //   this.crudService.unArticulo.resultadoCategoria9 = this.nota[0]?.resultadoCategoria9
+  //   this.crudService.unArticulo.resultadoCategoria10 = this.nota[0]?.resultadoCategoria10
+  //   this.crudService.unArticulo.resultadoCategoria11 = this.nota[0]?.resultadoCategoria11
+  //   this.crudService.unArticulo.resultadoCategoria12 = this.nota[0]?.resultadoCategoria12
 
 
+
+  //   this.crudService.unArticulo.resultadoImagen = this.nota[0]?.resultadoImagen
+  //   this.crudService.unArticulo.resultadoImagen2 = this.nota[0]?.resultadoImagen2
+  //   this.crudService.unArticulo.resultadoImagen3 = this.nota[0]?.resultadoImagen3
+  //   this.crudService.unArticulo.resultadoImagen4 = this.nota[0]?.resultadoImagen4
+  //   this.crudService.unArticulo.resultadoImagen5 = this.nota[0]?.resultadoImagen5
+  //   this.crudService.unArticulo.resultadoImagen6 = this.nota[0]?.resultadoImagen6
+  //   this.crudService.unArticulo.resultadoImagen7 = this.nota[0]?.resultadoImagen7
+  //   this.crudService.unArticulo.resultadoImagen8 = this.nota[0]?.resultadoImagen8
+  //   this.crudService.unArticulo.resultadoImagen9 = this.nota[0]?.resultadoImagen9
+  //   this.crudService.unArticulo.resultadoImagen10 = this.nota[0]?.resultadoImagen10
+  //   this.crudService.unArticulo.resultadoImagen11 = this.nota[0]?.resultadoImagen11
+  //   this.crudService.unArticulo.resultadoImagen12 = this.nota[0]?.resultadoImagen12
+
+
+  //   this.crudService.unArticulo.resultadoID = this.nota[0]?.resultadoID
+  //   this.crudService.unArticulo.resultadoID2 = this.nota[0]?.resultadoID2
+  //   this.crudService.unArticulo.resultadoID3 = this.nota[0]?.resultadoID3
+  //   this.crudService.unArticulo.resultadoID4 = this.nota[0]?.resultadoID4
+  //   this.crudService.unArticulo.resultadoID5 = this.nota[0]?.resultadoID5
+  //   this.crudService.unArticulo.resultadoID6 = this.nota[0]?.resultadoID6
+  //   this.crudService.unArticulo.resultadoID7 = this.nota[0]?.resultadoID7
+  //   this.crudService.unArticulo.resultadoID8 = this.nota[0]?.resultadoID8
+  //   this.crudService.unArticulo.resultadoID9 = this.nota[0]?.resultadoID9
+  //   this.crudService.unArticulo.resultadoID10 = this.nota[0]?.resultadoID10
+  //   this.crudService.unArticulo.resultadoID11 = this.nota[0]?.resultadoID11
+  //   this.crudService.unArticulo.resultadoID12 = this.nota[0]?.resultadoID12
 
 
 
 
 
-    // this.crudService.unProducto.fecha = String(this.fachaPublicacion)
 
-    this.crudService.modificarArticulo(this.crudService.unArticulo)
-      .subscribe(res => { console.log(res) })
-  }
+
+  //   // this.crudService.unProducto.fecha = String(this.fachaPublicacion)
+
+  //   this.crudService.modificarArticulo(this.crudService.unArticulo)
+  //     .subscribe(res => { console.log(res) })
+  // }
 
 
 

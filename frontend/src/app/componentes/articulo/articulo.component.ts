@@ -118,7 +118,7 @@ export class ArticuloComponent implements OnInit, OnDestroy {
   font-size:25px!important;
   color:orange;
   margin-bottom:15px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;};">
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
    `)
 
    aux2 =  aux2 = data.split('<h2>').join(`<h2 style=" font-weight: 700; 
@@ -127,8 +127,19 @@ export class ArticuloComponent implements OnInit, OnDestroy {
    font-size:25px!important;
    color:orange;
    margin-bottom:15px;
-   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;};">
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
     `)
+    aux2 =  aux2 = data.split('<figcaption>').join(`<figcaption style="  
+         
+    font-size:15px!important;
+    margin-bottom:15px;
+    text-align:center!important;
+    color:rgb(68, 68, 68);
+    
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+     `)
+ 
+    
 
     aux2 = aux2.split('<h3').join(`<h3 style="font-weight: 400; 
    line-height: 30px;
@@ -158,7 +169,7 @@ export class ArticuloComponent implements OnInit, OnDestroy {
 
 
 
-    aux2 = aux2.split('<img').join('<img style="width:100%; margin-top:10px; margin-bottom:10px"')
+    aux2 = aux2.split('<img').join('<img style="width:100%!important; margin-top:10px; margin-bottom:10px"')
 
 
     aux2 = aux2.split('https://www.youtube.com/watch?v=').join('https://www.youtube.com/embed/')
@@ -170,6 +181,7 @@ export class ArticuloComponent implements OnInit, OnDestroy {
     aux2 = aux2.split('<a ').join('<a target="_blank"')
     aux2 = aux2.split('style="margin-left:0px;text-align:center;"').join('style="text-align:center!important; font-size:15px!important; margin-top:-10px!important; margin-bottom:30px!important;"')
     aux2 = aux2.split('style="text-align:center!important;"').join('style="text-align:center!important; font-size:15px!important; margin-top:-10px!important; margin-bottom:30px!important;"')
+    aux2 = aux2.split('<figure ').join('<figure style="width:100%!important" ')
     // aux2 = aux2.split('').join('style=""')
     
     // text-align:center;"><strong>

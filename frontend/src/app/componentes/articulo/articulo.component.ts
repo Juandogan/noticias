@@ -121,14 +121,9 @@ export class ArticuloComponent implements OnInit, OnDestroy {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
    `)
 
-   aux2 =  aux2 = data.split('<h2>').join(`<h2 style=" font-weight: 700; 
-   line-height: 32px;
-   letter-spacing: -1px;
-   font-size:25px!important;
-   color:orange;
-   margin-bottom:15px;
-   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
-    `)
+ 
+ 
+
     aux2 =  aux2 = data.split('<figcaption>').join(`<figcaption style="  
          
     font-size:15px!important;
@@ -160,7 +155,22 @@ export class ArticuloComponent implements OnInit, OnDestroy {
                            text-justify:inter-character;
                                     "`)
                             
-
+                                    aux2 =  aux2.split('<h1>').join(`<h1 style=" font-weight: 700; 
+                                    line-height: 32px;
+                                    letter-spacing: -1px;
+                                    font-size:29px!important;
+                                    color:orange!important;
+                                    margin-bottom:15px;
+                                    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+                                     `)
+                                    aux2 =  aux2.split('<h2>').join(`<h2 style=" font-weight: 700; 
+                                    line-height: 32px;
+                                    letter-spacing: -1px;
+                                    font-size:29px!important;
+                                    color:orange!important;
+                                    margin-bottom:15px;
+                                    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+                                     `)
     // aux2 = aux2.split('<strong').join('<strong style="font-size:14px;  font-weight: 800;"')
     // aux2 = aux2.split('</p></strong>').join('</p></b>')
 
@@ -206,6 +216,16 @@ export class ArticuloComponent implements OnInit, OnDestroy {
 
     // console.log('sa' + aux2)
     // console.log(aux2)
+
+    var aux2 = aux2.split('<h2 style="margin-left:0px;text-align:justify;"').join(`<h2 style=" font-weight: 700; 
+    line-height: 32px;
+    letter-spacing: -1px;
+    font-size:25px!important;
+    color:orange;
+    margin-bottom:19px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;"
+     `)
+    console.log(aux2,'fin')
     return (aux2)
 
 

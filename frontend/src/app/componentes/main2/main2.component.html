@@ -38,7 +38,7 @@
       <div *ngIf="this.articulos" >
         <h4  *ngIf="this.articulos" class="indice quitar600" style="text-transform: uppercase; margin-top: 10px;">INDICE - {{this.articulos.mes}} <span>NRO. {{this.articulos.numero}}</span> - AÑO  {{this.articulos.anio}} </h4>
         
-        <app-b-indice  [data]="this.nota[0]"></app-b-indice> 
+        <app-b-indice  [data]="this.nota[0]" ></app-b-indice> 
       </div>
       <!-- <app-b-indice></app-b-indice> -->
       <app-publicidad-horizontal *ngIf="this.publi" [publi]="this.publi"></app-publicidad-horizontal>

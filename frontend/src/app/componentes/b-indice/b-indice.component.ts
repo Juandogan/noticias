@@ -1,4 +1,5 @@
 import { Component, OnInit,Input } from '@angular/core';
+import { CrudService } from 'src/app/servicios/crud.service';
 
 @Component({
   selector: 'app-b-indice',
@@ -7,21 +8,27 @@ import { Component, OnInit,Input } from '@angular/core';
 })
 export class BIndiceComponent implements OnInit {
 
-  @Input('data') data : any ;
 
+
+  @Input('data') data : any ;
   
+
+  publi :any
   link= ""
   titulo =''
   autor = ""
   descripcion= ''
   ruta=''
-  constructor() {
+  constructor(private crudAnuncios:CrudService) {
    
    }
 
   ngOnInit(): void {
-    
-    console.log('barnder',  this.data)
+
+    this.crudAnuncios.getAnuncios().subscribe(res=>{
+      this.publi = res 
+      console.log(this.publi,'sd')
+    })
   this.cambioImagen1()
     
      

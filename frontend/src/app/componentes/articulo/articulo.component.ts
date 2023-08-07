@@ -225,6 +225,14 @@ export class ArticuloComponent implements OnInit, OnDestroy {
     margin-bottom:19px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;"
      `)
+     var aux2 = aux2.split('<h1 style="margin-left:0px;text-align:justify;"').join(`<h1 style=" font-weight: 700; 
+     line-height: 32px;
+     letter-spacing: -1px;
+     font-size:25px!important;
+     color:orange;
+     margin-bottom:19px;
+     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;"
+      `)
     console.log(aux2,'fin')
     return (aux2)
 

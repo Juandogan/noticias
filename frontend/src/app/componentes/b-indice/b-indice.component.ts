@@ -7,12 +7,11 @@ import { CrudService } from 'src/app/servicios/crud.service';
   styleUrls: ['./b-indice.component.css']
 })
 export class BIndiceComponent implements OnInit {
-
+imagen:any
 
 
   @Input('data') data : any ;
   
-
   publi :any
   link= ""
   titulo =''
@@ -25,9 +24,10 @@ export class BIndiceComponent implements OnInit {
 
   ngOnInit(): void {
 
+   
     this.crudAnuncios.getAnuncios().subscribe(res=>{
       this.publi = res 
-      console.log(this.publi,'sd')
+      
     })
   this.cambioImagen1()
     

@@ -11,10 +11,13 @@ export class APortadaComponent implements OnInit {
   @Input('publi') publi: any;
   @Input('data') data: any;
 
+  
+
   constructor(private crudService: CrudService) { }
 
   ngOnInit(): void {
  
+   
 
   }
 

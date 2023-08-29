@@ -19,6 +19,7 @@ export class ArticuloComponent implements OnInit, OnDestroy {
   articulos2: any
   publi: any
   dataRelacionado2: any
+  imagenfiltro:any
   
   constructor(private ruta: ActivatedRoute, public crudService: CrudService, private location: Location,
     @Inject(PLATFORM_ID) private _platformId: Object ) { }
@@ -31,11 +32,13 @@ export class ArticuloComponent implements OnInit, OnDestroy {
     this.ruta.data.subscribe((data) => {
       this.nota = Object.entries(data).map((i) => i[1]);
       this.crudService.unArticulo = this.nota[0];
+      var aux3 = this.crudService.extractImageURL2(this.nota[0].nota,1)
+      console.log(aux3, 'LINKKKK')
       var aux = Number(this.crudService.unArticulo.vistas)
       var aux2 = aux + 1
       this.crudService.unArticulo.vistas = aux2
       this.pedirPubli()
-      console.log(this.nota, 'primero')
+      // console.log(this.nota, 'primero')
       if (this.nota[0].art1) {
         this.dataRelacionado = this.nota[0];
         this.loader2 = true
@@ -64,7 +67,7 @@ export class ArticuloComponent implements OnInit, OnDestroy {
 
   randomNoRepeat(arr: any) {
 
-    console.log(arr)
+    // console.log(arr)
 
 
     let newArr = [];
@@ -81,7 +84,7 @@ export class ArticuloComponent implements OnInit, OnDestroy {
     this.crudService.getArticulos2().subscribe(res => {
       this.articulos = res as Articulos[]; // guardo resultados de la peticion en variable productos del este componente.
       this.articulos2 = this.articulos
-      console.log(this.articulos)
+      // console.log(this.articulos)
       // for(const post of this.articulos){
       //      var aux = post?.categoria
       //   if (aux?.indexOf('revista'.toLowerCase()) > -1)
@@ -136,24 +139,11 @@ export class ArticuloComponent implements OnInit, OnDestroy {
  
     
 
-    aux2 = aux2.split('<h3').join(`<h3 style="font-weight: 400; 
-   line-height: 30px;
-   letter-spacing: 0px;
-   font-size:22px;
-   color:orange;
-   margin-bottom:10px;
+    aux2 = aux2.split('<h3').join(`<h3 style="font-weight: 400; line-height: 30px;letter-spacing: 0px;font-size:22px;color:orange;margin-bottom:10px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;"`)
 
  
-                                    aux2 = aux2.split('<p').join(`<p style="
-                                    font-weight: 400;
-                                    margin-top:-10px;
-                                    font-size: 18px; 
-                                    line-height: 28px;
-                                    color:rgb(68, 68, 68);
-                                    text-align:justify;  
-                           text-justify:inter-character;
-                                    "`)
+                                    aux2 = aux2.split('<p').join(`<p style="font-weight: 400;margin-top:-10px;font-size: 18px; line-height: 28px; color:rgb(68, 68, 68);text-align:justify; text-justify:inter-character;"`)
                             
                                     aux2 =  aux2.split('<h1>').join(`<h1 style=" font-weight: 700; 
                                     line-height: 32px;
@@ -192,30 +182,34 @@ export class ArticuloComponent implements OnInit, OnDestroy {
     aux2 = aux2.split('style="margin-left:0px;text-align:center;"').join('style="text-align:center!important; font-size:15px!important; margin-top:-10px!important; margin-bottom:30px!important;"')
     aux2 = aux2.split('style="text-align:center!important;"').join('style="text-align:center!important; font-size:15px!important; margin-top:-10px!important; margin-bottom:30px!important;"')
     aux2 = aux2.split('<figure ').join('<figure style="width:100%!important" ')
-    // aux2 = aux2.split('').join('style=""')
-    
-    // text-align:center;"><strong>
-
-    
-   
-    
-    // aux2 = aux2.split('<strong>').join('<strong style="font-size:16px;line-height: 0px!important; ">')
-    // aux2 = aux2.split('</a></p><p><strong>').join('</a></p><p style="text-align:center"><strong>')
+      
+    //regla pie de foto3
 
 
 
 
+    //regla pie de foto1
+
+
+
+     aux2 = aux2.split('</a></p><p style="margin-left:0px;text-align:center;"><strong>')
+     .join('</a></p><p style="margin-left:0px;text-align:center;"><div style="text-align:center!important;"><strong>')      
+       aux2 = aux2.split('</strong>').join('</strong></div>')
+//regla pie de foto2
+       aux2 = aux2.split('</a><strong>').join('</a><div style="text-align:center!important;"><strong>')      
+         aux2 = aux2.split('</strong>').join('</strong></div>')
 
 
 
 
-    // aux2 = aux2.split('<img style="width:100%; margin-top:10px" src="').join('<a href="')
-    // aux2 = aux2.split('ng">').join('ng"></a>')
-    // aux2 = aux2.split('pg">').join('pg"></a>')
 
 
-    // console.log('sa' + aux2)
-    // console.log(aux2)
+
+
+
+     
+     //</a></p><p style="margin-left:0px;text-align:center;"><strong>
+ 
 
     var aux2 = aux2.split('<h2 style="margin-left:0px;text-align:justify;"').join(`<h2 style=" font-weight: 700; 
     line-height: 32px;
@@ -233,7 +227,41 @@ export class ArticuloComponent implements OnInit, OnDestroy {
      margin-bottom:19px;
      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;"
       `)
-    console.log(aux2,'fin')
+
+      aux2 = aux2.split('jpg"></p><p style="font-weight: 400;margin-top:-10px;font-size: 18px; line-height: 28px; color:rgb(68, 68, 68);text-align:justify; text-justify:inter-character;" style="text-align:center!important; font-size:15px!important; margin-top:-10px!important; margin-bottom:30px!important;"><strong>')
+.join('jpg"></p><div style="text-align:center!important;margin-top:-10px"><strong>')      
+aux2 = aux2.split('</strong>').join('</strong></div>')
+
+aux2 = aux2.split('alt=""></a></p><p style="font-weight: 400;margin-top:-10px;font-size: 18px; line-height: 28px; color:rgb(68, 68, 68);text-align:justify; text-justify:inter-character;" style="text-align:center!important; font-size:15px!important; margin-top:-10px!important; margin-bottom:30px!important;"><strong>')
+.join('alt=""></a></p><p style="font-weight: 400;margin-top:-10px;font-size: 18px; line-height: 28px; color:rgb(68, 68, 68);text-align:justify; text-justify:inter-character;" style="text-align:center!important; font-size:15px!important; margin-top:-10px!important; margin-bottom:30px!important;"><div style="text-align:center!important;margin-top:-10px"><strong>')      
+aux2 = aux2.split('</strong>').join('</strong></div>')
+
+aux2 = aux2.split('jpg"></a></p><p style="font-weight: 400;margin-top:-10px;font-size: 18px; line-height: 28px; color:rgb(68, 68, 68);text-align:justify; text-justify:inter-character;" style="text-align:center!important; font-size:15px!important; margin-top:-10px!important; margin-bottom:30px!important;"><strong>"><strong>')
+.join('jpg"></a></p><p style="font-weight: 400;margin-top:-10px;font-size: 18px; line-height: 28px; color:rgb(68, 68, 68);text-align:justify; text-justify:inter-character;" style="text-align:center!important; font-size:15px!important; margin-top:-10px!important; margin-bottom:30px!important;"><div style="text-align:center!important;margin-top:-10px"><strong>')      
+aux2 = aux2.split('</strong>').join('</strong></div>')
+
+
+
+aux2 = aux2.split('jpg"></a></p><p style="font-weight: 400;margin-top:-10px;font-size: 18px; line-height: 28px; color:rgb(68, 68, 68);text-align:justify; text-justify:inter-character;" style="text-align:center!important; font-size:15px!important; margin-top:-10px!important; margin-bottom:30px!important;"><strong>')
+.join('jpg"></a></p><p style="font-weight: 400;margin-top:-10px;font-size: 18px; line-height: 28px; color:rgb(68, 68, 68);text-align:justify; text-justify:inter-character;" style="text-align:center!important; font-size:15px!important; margin-top:-10px!important; margin-bottom:30px!important;"><div style="text-align:center!important;margin-top:-10px"><strong>')      
+aux2 = aux2.split('</strong>').join('</strong></div>')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      console.log(aux2)
+    
     return (aux2)
 
 
@@ -337,7 +365,19 @@ export class ArticuloComponent implements OnInit, OnDestroy {
   //   this.crudService.modificarArticulo(this.crudService.unArticulo)
   //     .subscribe(res => { console.log(res) })
   // }
-
+  
+  extractImageURL(text: string): string | null {
+    const regex = /<img[^>]*src="([^"]+)"/;
+    const match = text.match(regex);
+  
+    if (match && match[1]) {
+      console.log(match[1])
+      return match[1];
+    }
+  
+    return null;
+  }
+  
 
 
 

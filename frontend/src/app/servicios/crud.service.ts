@@ -121,7 +121,33 @@ export class CrudService {
    return corte
  };
 
+ extractImageURL2(code: string, index: number): string | null {
+  const regex = /<img[^>]*src="([^"]+)"/g;
+  const matches = code.match(regex);
 
+  if (matches && index < matches.length) {
+    const match = matches[index];
+    const urlMatch = match.match(/src="([^"]+)"/);
+    if (urlMatch && urlMatch[1]) {
+      return urlMatch[1];
+    }
+  }
+
+  return null;
+}
+
+
+ extractImageURL(text: string): string | null {
+  const regex = /<img[^>]*src="([^"]+)"/;
+  const match = text.match(regex);
+
+  if (match && match[1]) {
+    console.log(match[1])
+    return match[1];
+  }
+
+  return null;
+}
 
 
 

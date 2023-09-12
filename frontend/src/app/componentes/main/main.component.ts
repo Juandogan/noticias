@@ -5,7 +5,6 @@ import { CrudService } from 'src/app/servicios/crud.service';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 import { isPlatformBrowser, isPlatformServer } from '@angular/common';
 import { PLATFORM_ID } from '@angular/core';
-
 import { ModalDirective } from 'ngx-bootstrap/modal';
 
 @Component({

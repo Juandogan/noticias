@@ -1,10 +1,14 @@
-import { Component, OnInit, OnDestroy, Inject } from '@angular/core';
+import { Component, OnInit,ViewChild, OnDestroy, Inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CrudService } from 'src/app//servicios/crud.service';
 import { Location } from '@angular/common';
 import { Articulos } from 'src/app/models/articulos';
 import { PLATFORM_ID } from '@angular/core';
-
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { ModalDirective } from 'ngx-bootstrap/modal';
+import { TemplateRef } from '@angular/core';
+import { Renderer2, ElementRef, AfterViewInit } from '@angular/core';
+import { isPlatformBrowser, isPlatformServer } from '@angular/common';
 
 @Component({
   selector: 'app-articulo',
@@ -12,16 +16,32 @@ import { PLATFORM_ID } from '@angular/core';
   styleUrls: ['./articulo.component.css'],
   // encapsulation: ViewEncapsulation.None,
 })
-export class ArticuloComponent implements OnInit, OnDestroy {
+
+
+
+
+export class ArticuloComponent implements AfterViewInit {
+ 
+  
+  modalRef?: BsModalRef;
+  estadoBtn= false
+  articulos:any
+  loader = true
+  publi:any
+  abrir= "modal" 
+  
   dataRelacionado: any
   loader2 = false
-  articulos: any
   articulos2: any
-  publi: any
+  
   dataRelacionado2: any
   imagenfiltro:any
+
+  @ViewChild('autoShownModal', { static: false }) autoShownModal?: ModalDirective;
+isModalShown = false;
+
   
-  constructor(private ruta: ActivatedRoute, public crudService: CrudService, private location: Location,
+  constructor(private modalService: BsModalService, private ruta: ActivatedRoute, public crudService: CrudService, private location: Location,
     @Inject(PLATFORM_ID) private _platformId: Object ) { }
 
   nota: any
@@ -378,15 +398,44 @@ aux2 = aux2.split('</strong>').join('</strong></div>')
     return null;
   }
   
+  
+  
+  ngAfterViewInit(): void {
+    
+    if (isPlatformBrowser(this._platformId)) {
 
-
-
-
-
-  ngOnDestroy() {
-
-
-
+      const screenWidth = window.innerWidth;
+      if (screenWidth < 600) {
+                this.showModal()
+      }
+          }
+    
+  }
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template);
   }
 
-};
+
+ 
+cerrar(){
+  this.estadoBtn = true
+}
+  
+
+
+
+
+showModal(): void {
+  this.isModalShown = true;
+}
+
+hideModal(): void {
+  this.autoShownModal?.hide();
+}
+
+onHidden(): void {
+  this.isModalShown = false;
+}
+}
+
+

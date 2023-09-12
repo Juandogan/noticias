@@ -1,5 +1,6 @@
 
 .poner600{display:none}
+
  
 .flex-container {
  display: flex;
@@ -9,6 +10,10 @@
  align-items: normal;
  align-content: normal;
 }
+
+ 
+
+
 
 .edicionesAnteriores{
  margin-left: -10px;margin-right: -10px; padding-left:15px; 
@@ -136,7 +141,12 @@ nota{font-size:16px}
  margin-top:-5px; 
  margin-left:-10px; 
  margin-right: 5px
+
+ 
+
 }
+
+
 .poner600{display:none}
 .logoCCAMFooter{
  width: 125px; margin-top: 268px;  margin-left: 125px; margin-right: 0px;

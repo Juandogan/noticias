@@ -215,3 +215,18 @@
 </div>
 
 
+<div class="poner600" *ngIf="isModalShown && this.nota[0].popup" [config]="{ show: true }" (onHidden)="onHidden()" bsModal #autoShownModal="bs-modal"
+class="modal fade" tabindex="-1" role="dialog" aria-labelledby="dialog-auto-name">
+<div class="modal-dialog modal-xl">
+<div class="modal-content" style="background-color: rgba(0, 0, 0, 0.26);">
+
+ <button type="button" class="btn btn-danger" (click)="hideModal()" style="color:white; width: 40px; border-radius: 40px;z-index: 999999999999; right: 2px;position:absolute">X</button>
+
+ <div class="modal-body" style="padding: 0px!important; top:10px; z-index: 999999999;">
+   <a href="{{nota[0]?.popupLink}}" target="_blank" style="cursor: pointer;">
+   <img src="{{this.nota[0].popup}}" alt="" style=" width: 100%; width: 100%; ">
+  </a> 
+ </div>
+</div>
+</div>
+</div>

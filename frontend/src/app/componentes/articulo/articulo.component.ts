@@ -104,6 +104,7 @@ isModalShown = false;
     this.crudService.getArticulos2().subscribe(res => {
       this.articulos = res as Articulos[]; // guardo resultados de la peticion en variable productos del este componente.
       this.articulos2 = this.articulos
+
       // console.log(this.articulos)
       // for(const post of this.articulos){
       //      var aux = post?.categoria
@@ -145,7 +146,7 @@ isModalShown = false;
    `)
 
  
- 
+
 
     aux2 =  aux2 = data.split('<figcaption>').join(`<figcaption style="  
          
@@ -265,10 +266,11 @@ aux2 = aux2.split('</strong>').join('</strong></div>')
 aux2 = aux2.split('jpg"></a></p><p style="font-weight: 400;margin-top:-10px;font-size: 18px; line-height: 28px; color:rgb(68, 68, 68);text-align:justify; text-justify:inter-character;" style="text-align:center!important; font-size:15px!important; margin-top:-10px!important; margin-bottom:30px!important;"><strong>')
 .join('jpg"></a></p><p style="font-weight: 400;margin-top:-10px;font-size: 18px; line-height: 28px; color:rgb(68, 68, 68);text-align:justify; text-justify:inter-character;" style="text-align:center!important; font-size:15px!important; margin-top:-10px!important; margin-bottom:30px!important;"><div style="text-align:center!important;margin-top:-10px"><strong>')      
 aux2 = aux2.split('</strong>').join('</strong></div>')
+aux2 = aux2.split('http://191.101.18.184:3000/').join('https://www.culturademontania.org.ar/')
 
 
 
-
+   
 
 
 

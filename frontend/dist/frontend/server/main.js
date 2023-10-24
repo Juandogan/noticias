@@ -1054,7 +1054,12 @@ class ArticuloComponent {
     aux2 = aux2.split('</strong>').join('</strong></div>');
     aux2 = aux2.split('jpg"></a></p><p style="font-weight: 400;margin-top:-10px;font-size: 18px; line-height: 28px; color:rgb(68, 68, 68);text-align:justify; text-justify:inter-character;" style="text-align:center!important; font-size:15px!important; margin-top:-10px!important; margin-bottom:30px!important;"><strong>').join('jpg"></a></p><p style="font-weight: 400;margin-top:-10px;font-size: 18px; line-height: 28px; color:rgb(68, 68, 68);text-align:justify; text-justify:inter-character;" style="text-align:center!important; font-size:15px!important; margin-top:-10px!important; margin-bottom:30px!important;"><div style="text-align:center!important;margin-top:-10px"><strong>');
     aux2 = aux2.split('</strong>').join('</strong></div>');
+    //  aux2 = aux2.split('https://www.culturademontania.org.ar/').join('https://old.culturademontania.org.ar/')
+    //  aux2 = aux2.split('http://191.101.18.184:3000/').join('https://www.culturademontania.org.ar/')
+    //  aux2 = aux2.split('https://old.culturademontania.org.ar/ccam/').join('https://www.culturademontania.org.ar/ccam/') 
     aux2 = aux2.split('https://www.culturademontania.org.ar/').join('https://old.culturademontania.org.ar/');
+    aux2 = aux2.split('https://culturademontania.org.ar/').join('https://old.culturademontania.org.ar/');
+    aux2 = aux2.split('http://www.culturademontania.org.ar/').join('https://old.culturademontania.org.ar/');
     aux2 = aux2.split('http://191.101.18.184:3000/').join('https://www.culturademontania.org.ar/');
     aux2 = aux2.split('https://old.culturademontania.org.ar/ccam/').join('https://www.culturademontania.org.ar/ccam/');
     console.log(aux2);
@@ -5814,7 +5819,7 @@ const cors = __webpack_require__(/*! cors */ 49451);
 function app() {
   const server = express__WEBPACK_IMPORTED_MODULE_2__();
   // const distFolder = join(process.cwd(),  'dist/frontend/browser'); para produccion poner  '../browser'
-  const distFolder = (0,path__WEBPACK_IMPORTED_MODULE_4__.join)(process.cwd(), '../browser');
+  const distFolder = (0,path__WEBPACK_IMPORTED_MODULE_4__.join)(process.cwd(), 'dist/frontend/browser');
   const indexHtml = (0,fs__WEBPACK_IMPORTED_MODULE_3__.existsSync)((0,path__WEBPACK_IMPORTED_MODULE_4__.join)(distFolder, 'index.original.html')) ? 'index.original.html' : 'index';
   // Our Universal express-engine (found @ https://github.com/angular/universal/tree/main/modules/express-engine)
   server.engine('html', (0,_nguniversal_express_engine__WEBPACK_IMPORTED_MODULE_1__.ngExpressEngine)({

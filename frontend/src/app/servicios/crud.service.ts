@@ -11,11 +11,11 @@ import { Location } from '@angular/common';
 })
 export class CrudService {
   
-  readonly URL_API  = "http://191.101.18.184:3000/revista";
-  readonly URL_API2  = "http://191.101.18.184:3000/ccam";
-  readonly URL_API3  = "http://191.101.18.184:3000/anunciante";
-  readonly URL_API4  = "http://191.101.18.184:3000/categorias";
-  readonly URL_API5  = "http://191.101.18.184:3000/carousel";
+  readonly URL_API  = "https://191.101.18.184:3000/revista";
+  readonly URL_API2  = "https://191.101.18.184:3000/ccam";
+  readonly URL_API3  = "https://191.101.18.184:3000/anunciante";
+  readonly URL_API4  = "https://191.101.18.184:3000/categorias";
+  readonly URL_API5  = "https://191.101.18.184:3000/carousel";
 
 
   cambioPantalla = true;

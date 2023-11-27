@@ -28,6 +28,7 @@ import { Main2Component } from './componentes/main2/main2.component'
 import { FooterCardComponent } from './componentes/footer-card/footer-card.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { PublicidadHorizontal2Component } from './componentes/publicidad-horizontal2/publicidad-horizontal2.component';
+import { NosotrosComponent } from './componentes/nosotros/nosotros.component';
 
 
 @NgModule({
@@ -50,7 +51,8 @@ import { PublicidadHorizontal2Component } from './componentes/publicidad-horizon
     LateralIntercaladoComponent,
     Main2Component,
     FooterCardComponent,
-    PublicidadHorizontal2Component
+    PublicidadHorizontal2Component,
+    NosotrosComponent
     
     
 
